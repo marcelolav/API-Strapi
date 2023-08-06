@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "productos",
+  "info": {
+    "singularName": "producto",
+    "pluralName": "productos",
+    "displayName": "Producto",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombreproducto": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 100,
+      "minLength": 3
+    },
+    "codigobarra": {
+      "type": "string",
+      "unique": true,
+      "required": false,
+      "maxLength": 80
+    },
+    "precioventa": {
+      "type": "decimal",
+      "required": true
+    },
+    "preciocompra": {
+      "type": "decimal",
+      "required": true
+    },
+    "esactivo": {
+      "type": "boolean",
+      "required": true
+    },
+    "existencia": {
+      "type": "integer"
+    },
+    "stockminimo": {
+      "type": "integer"
+    },
+    "foto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nombreproducto"
+    },
+    "rubro": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rubro.rubro"
+    }
+  }
+}
